@@ -54,6 +54,7 @@ export default function Dashboard({ onNavigate, onLogout }: DashboardProps) {
     <div style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.7)), url(${backImage})`, backgroundSize: "100vw", backgroundRepeat: "no-repeat", opacity:"20", backgroundPosition: "center bottom" }} className="min-h-screen ">
       <div className="container mx-auto p-6">
         <div className='flex justify-center w-full mb-5.5'>
+          <img src={bexex} width={150} alt="Bexex Logo" />
         </div>
         <div className="flex justify-between items-center mb-8 rounded-2xl p-5 bg-gradient-to-r from-[#57664C] to-[#6B8E7D]">
           <div>
