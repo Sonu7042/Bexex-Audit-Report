@@ -65,7 +65,7 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
       className="min-h-screen p-6"
       style={{ backgroundColor: 'var(--color-background)' }}
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-9xl">
         {/* Header */}
         <div className="mb-6 ">
           <Button variant="ghost" onClick={onBack} className="hover:bg-white/80">

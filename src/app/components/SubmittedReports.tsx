@@ -304,7 +304,7 @@ export default function SubmittedReports({ onBack }: SubmittedReportsProps) {
 
   return (
     <div className="min-h-screen bg-[#F8FAF9] p-6 md:p-8">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-9xl">
         {/* Header Section */}
         <div className="mb-8">
           <Button 
