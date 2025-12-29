@@ -1,6 +1,7 @@
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { FileText, FolderOpen, Upload, Cloud, LogOut } from 'lucide-react';
+import bexex from '../../assests/Bexex-logo.png';
 
 interface DashboardProps {
   onNavigate: (view: 'dashboard' | 'new-report' | 'submitted-reports' | 'upload-project') => void;
@@ -51,13 +52,16 @@ export default function Dashboard({ onNavigate, onLogout }: DashboardProps) {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 bg-[rgba(255,242,203,0)]">
       <div className="container mx-auto p-6">
-        <div className="flex justify-between items-center mb-8">
+        <div className='flex justify-center w-full mb-5.5'>
+          <img width={150} src={bexex} alt="Bexex Logo" />
+        </div>
+        <div className="flex justify-between items-center mb-8 rounded-2xl p-5 bg-gradient-to-r from-[#57664C] to-[#6B8E7D]">
           <div>
-            <h1 className="text-gray-800">Audit Management Dashboard</h1>
-            <p className="text-gray-600 mt-2">Welcome back! Select an option to continue</p>
+            <h1 className="text-white text-3xl font-bold">Audit Management Dashboard</h1>
+            <p className="text-white/80">Welcome back! Select an option to continue</p>
           </div>
           <Button variant="outline" onClick={onLogout}>
-            <LogOut className="w-4 h-4 mr-2" />
+            <LogOut className="w-4 h-4 mr-2 bg-white/10 backdrop-blur-sm" />
             Logout
           </Button>
         </div>
@@ -72,8 +76,8 @@ export default function Dashboard({ onNavigate, onLogout }: DashboardProps) {
                 onClick={() => handleClick(item.id)}
               >
                 <CardHeader>
-                  <div className="flex items-start space-x-4 bg-[rgba(243,9,9,0)] px-[39px] py-[0px]">
-                    <div className={`${item.color} p-3 rounded-lg`}>
+                  <div className="flex items-center space-x-4 bg-[rgba(243,9,9,0)]">
+                    <div className={`${item.color} p-2 rounded-lg`}>
                       <Icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
