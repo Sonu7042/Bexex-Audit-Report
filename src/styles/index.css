@@ -1,3 +1,77 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+
+
+
+
+
+:root {
+  /* Background */
+  --color-background: #F8FAF9; /* Clean, soft off-white */
+
+  /* Primary */
+  --color-primary: #57664C; /* Dark Olive - headers, main text */
+
+  /* Status Colors */
+  --color-success: #80AD9B; /* Sage Green - success, progress */
+  --color-accent: #A68D86;  /* Dusty Rose - pending, highlights */
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(
+    135deg,
+    #57664C 0%,
+    #80AD9B 100%
+  );
+
+  --gradient-accent: linear-gradient(
+    135deg,
+    #A68D86 0%,
+    #F8FAF9 100%
+  );
+}
+
+
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+}
+
+
+
+/* Header */
+.header {
+  background: var(--gradient-primary);
+  color: white;
+}
+
+
+
+/* Status labels */
+.status-success {
+  color: var(--color-success);
+}
+
+.status-pending {
+  color: var(--color-accent);
+}
+
+
+/* Utility classes */
+bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-success {
+  background-color: var(--color-success);
+}
+
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-accent {
+  color: var(--color-accent);
+}

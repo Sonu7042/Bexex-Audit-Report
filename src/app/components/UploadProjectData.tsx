@@ -29,20 +29,25 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Save to localStorage
+
     const projects = JSON.parse(localStorage.getItem('projects') || '[]');
+
     const newProject = {
       ...formData,
       projectId: `UPROJ${String(projects.length + 1).padStart(3, '0')}`,
       createdAt: new Date().toISOString(),
     };
+
     projects.push(newProject);
     localStorage.setItem('projects', JSON.stringify(projects));
-    
-    toast.success('Project data uploaded successfully!');
-    
-    // Reset form
+
+    toast.success('Project data uploaded successfully!', {
+      style: {
+        background: 'var(--color-success)',
+        color: 'white',
+      },
+    });
+
     setFormData({
       projectName: '',
       clientName: '',
@@ -56,10 +61,14 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="container mx-auto max-w-3xl">
-        <div className="mb-6">
-          <Button variant="ghost" onClick={onBack}>
+    <div
+      className="min-h-screen p-6"
+      style={{ backgroundColor: 'var(--color-background)' }}
+    >
+      <div className="container mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mb-6 ">
+          <Button variant="ghost" onClick={onBack} className="hover:bg-white/80">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Dashboard
           </Button>
@@ -67,8 +76,11 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
 
         <Card>
           <CardHeader>
-            <CardTitle>Upload Project Data</CardTitle>
+            <CardTitle className="text-primary">
+              Upload Project Data
+            </CardTitle>
           </CardHeader>
+
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,8 +89,9 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
                   <Input
                     id="projectName"
                     value={formData.projectName}
-                    onChange={(e) => handleChange('projectName', e.target.value)}
-                    placeholder="Enter project name"
+                    onChange={(e) =>
+                      handleChange('projectName', e.target.value)
+                    }
                     required
                   />
                 </div>
@@ -88,8 +101,9 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
                   <Input
                     id="clientName"
                     value={formData.clientName}
-                    onChange={(e) => handleChange('clientName', e.target.value)}
-                    placeholder="Enter client name"
+                    onChange={(e) =>
+                      handleChange('clientName', e.target.value)
+                    }
                     required
                   />
                 </div>
@@ -99,8 +113,9 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
                   <Input
                     id="location"
                     value={formData.location}
-                    onChange={(e) => handleChange('location', e.target.value)}
-                    placeholder="Enter project location"
+                    onChange={(e) =>
+                      handleChange('location', e.target.value)
+                    }
                     required
                   />
                 </div>
@@ -109,10 +124,11 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
                   <Label htmlFor="scopeOfWork">Scope of Work *</Label>
                   <Textarea
                     id="scopeOfWork"
-                    value={formData.scopeOfWork}
-                    onChange={(e) => handleChange('scopeOfWork', e.target.value)}
-                    placeholder="Describe the scope of work"
                     rows={4}
+                    value={formData.scopeOfWork}
+                    onChange={(e) =>
+                      handleChange('scopeOfWork', e.target.value)
+                    }
                     required
                   />
                 </div>
@@ -123,7 +139,9 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
                     id="startDate"
                     type="date"
                     value={formData.startDate}
-                    onChange={(e) => handleChange('startDate', e.target.value)}
+                    onChange={(e) =>
+                      handleChange('startDate', e.target.value)
+                    }
                     required
                   />
                 </div>
@@ -134,40 +152,53 @@ export default function UploadProjectData({ onBack }: UploadProjectDataProps) {
                     id="endDate"
                     type="date"
                     value={formData.endDate}
-                    onChange={(e) => handleChange('endDate', e.target.value)}
+                    onChange={(e) =>
+                      handleChange('endDate', e.target.value)
+                    }
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="pmName">Project Manager Name *</Label>
+                  <Label htmlFor="pmName">Project Manager *</Label>
                   <Input
                     id="pmName"
                     value={formData.pmName}
-                    onChange={(e) => handleChange('pmName', e.target.value)}
-                    placeholder="Enter PM name"
+                    onChange={(e) =>
+                      handleChange('pmName', e.target.value)
+                    }
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="contact">Contact Number *</Label>
+                  <Label htmlFor="contact">Contact *</Label>
                   <Input
                     id="contact"
                     type="tel"
                     value={formData.contact}
-                    onChange={(e) => handleChange('contact', e.target.value)}
-                    placeholder="Enter contact number"
+                    onChange={(e) =>
+                      handleChange('contact', e.target.value)
+                    }
                     required
                   />
                 </div>
               </div>
 
-              <div className="flex justify-end space-x-4">
-                <Button type="button" variant="outline" onClick={onBack}>
+              <div className="flex justify-end gap-4">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={onBack}
+                  className="text-accent border-[var(--color-accent)]"
+                >
                   Cancel
                 </Button>
-                <Button type="submit">
+
+                <Button
+                  type="submit"
+                  className="bg-primary text-white hover:opacity-90"
+                >
                   Upload Project Data
                 </Button>
               </div>

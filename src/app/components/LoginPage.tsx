@@ -5,6 +5,7 @@ import { Label } from './ui/label';
 import { Checkbox } from './ui/checkbox';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { ShieldCheck } from 'lucide-react';
+import bexexLogo from '../../assests/Bexex logo-01.png'
 
 
 interface LoginPageProps {
@@ -28,9 +29,10 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-            <div className="bg-blue-600 p-3 rounded-full">
+              <img src={bexexLogo} width={200} alt="Logo" />
+            {/* <div className="bg-blue-600 p-3 rounded-full">
               <ShieldCheck className="w-8 h-8 text-white" />
-            </div>
+            </div> */}
           </div>
           <CardTitle>Audit Management System</CardTitle>
           <CardDescription>Sign in to access your audit reports</CardDescription>
