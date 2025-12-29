@@ -2,10 +2,17 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
+  --background: #F8FAF9; /* soft off-white */
+  --primary: #57664C; /* Dark Olive - primary color */
+  --foreground: var(--primary);
   --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: var(--primary);
+  --success: #80AD9B; /* Sage Green */
+  --accent: #A68D86; /* Dusty Rose */
+  --gradient-header-from: #57664C;
+  --gradient-header-to: #A68D86;
+  --gradient-progress-from: #80AD9B;
+  --gradient-progress-to: #57664C;
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
   --primary: #030213;
@@ -203,6 +210,7 @@
 
   body {
     @apply bg-background text-foreground;
+    background-color: var(--background);
   }
 
   /**
@@ -218,18 +226,21 @@
     font-size: var(--text-2xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--primary);
   }
 
   h2 {
     font-size: var(--text-xl);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--primary);
   }
 
   h3 {
     font-size: var(--text-lg);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--primary);
   }
 
   h4 {
@@ -248,6 +259,7 @@
     font-size: var(--text-base);
     font-weight: var(--font-weight-medium);
     line-height: 1.5;
+    color: var(--primary);
   }
 
   input {
@@ -256,3 +268,78 @@
     line-height: 1.5;
   }
 }
+
+/* Custom theme helpers and overrides (keeps existing markup/classes intact) */
+
+/* Make dashboard card grid stack vertically on all breakpoints (overrides md:grid-cols-2) */
+.container .grid.grid-cols-1.md\:grid-cols-2 {
+  grid-template-columns: 1fr !important;
+}
+
+/* Subtle card styling using primary tint */
+[data-slot="card"] {
+  box-shadow: 0 8px 24px rgba(87,102,76,0.06);
+  border-color: rgba(87,102,76,0.08);
+}
+
+/* Card header icon: use gentle gradient matching palette while preserving existing utility classes */
+[data-slot="card-header"] .p-3.rounded-lg {
+  background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+}
+
+/* Normalize card header inner padding (overrides px-[39px] py-[0px] used inline in Dashboard) */
+[data-slot="card-header"] > .flex.items-start.space-x-4,
+[data-slot="card-header"] > .flex.items-start {
+  padding: 1rem !important;
+  gap: 1rem !important;
+  align-items: center !important;
+}
+
+/* Status chips */
+.status-all-clear {
+  background-color: var(--success);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.status-pending {
+  background-color: var(--accent);
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Gradient utilities for headers and progress bars */
+.gradient-header {
+  background: linear-gradient(90deg, var(--gradient-header-from), var(--gradient-header-to));
+  color: #fff;
+}
+
+.gradient-progress {
+  background: linear-gradient(90deg, var(--gradient-progress-from), var(--gradient-progress-to));
+  height: 8px;
+  border-radius: 999px;
+}
+
+/* Make any set of buttons inside container stack vertically and stretch full width */
+.container .vertical-buttons, .container .btn-vertical, .container .btn-group-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.container .vertical-buttons > *,
+.container .btn-vertical > *,
+.container .btn-group-vertical > * {
+  width: 100%;
+}
+
