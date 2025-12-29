@@ -6,6 +6,7 @@ import { Checkbox } from './ui/checkbox';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { ShieldCheck } from 'lucide-react';
 
+
 interface LoginPageProps {
   onLogin: () => void;
 }
