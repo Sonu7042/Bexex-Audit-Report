@@ -5,7 +5,7 @@ import { Label } from './ui/label';
 import { Checkbox } from './ui/checkbox';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { ShieldCheck } from 'lucide-react';
-import bexexLogo from '../../assests/Bexex logo-01.png'
+import bexexLogo from '../../assests/Bexex-logo.png'
 
 
 interface LoginPageProps {

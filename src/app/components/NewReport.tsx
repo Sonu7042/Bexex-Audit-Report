@@ -72,7 +72,7 @@ export default function NewReport({ onBack }: NewReportProps) {
     <div className="min-h-screen bg-gray-50">
       <div className="container mx-auto p-6">
         <div className="mb-6">
-          <Button variant="ghost" onClick={handleBack}>
+          <Button variant="ghost" onClick={handleBack} className="hover:bg-white/80">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back
           </Button>
@@ -80,7 +80,7 @@ export default function NewReport({ onBack }: NewReportProps) {
 
         {/* Progress Steps */}
         <div className="mb-8">
-          <div className="flex justify-between items-center max-w-4xl mx-auto">
+          <div className="flex justify-between items-center max-w-9xl mx-auto">
             {steps.map((step, index) => (
               <div key={step.number} className="flex items-center flex-1">
                 <div className="flex flex-col items-center flex-1">
@@ -108,7 +108,7 @@ export default function NewReport({ onBack }: NewReportProps) {
         </div>
 
         {/* Step Content */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-9xl mx-auto">
           {currentStep === 1 && (
             <SelectProject
               selectedProject={reportData.project}
