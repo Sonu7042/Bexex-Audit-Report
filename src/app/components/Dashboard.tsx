@@ -2,6 +2,7 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { FileText, FolderOpen, Upload, Cloud, LogOut } from 'lucide-react';
 import bexex from '../../assests/Bexex-logo.png';
+import backImage from'../../assests/background-image.png'
 
 interface DashboardProps {
   onNavigate: (view: 'dashboard' | 'new-report' | 'submitted-reports' | 'upload-project') => void;
@@ -50,10 +51,9 @@ export default function Dashboard({ onNavigate, onLogout }: DashboardProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 bg-[rgba(255,242,203,0)]">
+    <div style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.7)), url(${backImage})`, backgroundSize: "100vw", backgroundRepeat: "no-repeat", opacity:"20", backgroundPosition: "center bottom" }} className="min-h-screen ">
       <div className="container mx-auto p-6">
         <div className='flex justify-center w-full mb-5.5'>
-          <img width={150} src={bexex} alt="Bexex Logo" />
         </div>
         <div className="flex justify-between items-center mb-8 rounded-2xl p-5 bg-gradient-to-r from-[#57664C] to-[#6B8E7D]">
           <div>

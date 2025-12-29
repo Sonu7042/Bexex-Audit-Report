@@ -25,11 +25,11 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-6">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-              <img src={bexexLogo} width={200} alt="Logo" />
+              <img src={bexexLogo} width={100} alt="Logo" />
             {/* <div className="bg-blue-600 p-3 rounded-full">
               <ShieldCheck className="w-8 h-8 text-white" />
             </div> */}
