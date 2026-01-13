@@ -112,7 +112,7 @@ export default function SubmittedReports({ onBack }: SubmittedReportsProps) {
       return total + (activityQuestions[activity] || 10);
     }, 0);
   };
-
+      
   const getAnsweredQuestions = (report: Report) => {
     // Count how many questions have been answered
     return Object.values(report.responses).filter((r: any) => r.answer).length;
